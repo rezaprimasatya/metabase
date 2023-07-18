@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase.trade.sniper
+    volumes:
+      - data:/metabase
+    ports:
+      - 3000:3000
+    env_file:
+      - ./metabase.env
+    healthcheck:
+      test: curl --fail -I http://localhost:3000/api/health || exit 1
+      interval: 15s
+      retries: 5
+      start_period: 10s
+      timeout: 5s
+volumes:
+  data:
