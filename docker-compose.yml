@@ -8,12 +8,18 @@ services:
     ports:
       - 3000:3000
     env_file:
-      - ./metabase.env
+      - .env
     healthcheck:
       test: curl --fail -I http://localhost:3000/api/health || exit 1
       interval: 15s
       retries: 5
       start_period: 10s
       timeout: 5s
+    restart: always
+    networks:
+        - metabase-network
 volumes:
   data:
+networks:
+  metabase-network:
+    driver: bridge
