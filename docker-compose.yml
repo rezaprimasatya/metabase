@@ -12,7 +12,6 @@ services:
       - metabase-data:/metabase-data
     command:
       - --log-metrics
-      - --log-timezone=UTC
       - --timezone=UTC
       - --plugins-dir=/plugins
     healthcheck:
