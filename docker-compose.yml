@@ -12,7 +12,6 @@ services:
       - metabase-data:/metabase-data
     command:
       - --log-metrics
-      - --plugins-dir=/plugins
     healthcheck:
       test: ["CMD-SHELL", "wget -q --spider http://localhost:3000/ || exit 1"]
       interval: 30s
