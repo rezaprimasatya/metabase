@@ -10,8 +10,6 @@ services:
       - .env
     volumes:
       - metabase-data:/metabase-data
-    command:
-      - --log-metrics
     healthcheck:
       test: ["CMD-SHELL", "wget -q --spider http://localhost:3000/ || exit 1"]
       interval: 30s
